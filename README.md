@@ -37,34 +37,6 @@ Website interaktif yang menampilkan timeline evolusi teknologi web dari tahun 19
    # Klik kanan pada index.html > "Open with Live Server"
    ```
 
-### Hosting di GitHub Pages
-
-1. **Upload ke GitHub:**
-   ```bash
-   # Buat repository baru di GitHub
-   git init
-   git add .
-   git commit -m "Initial commit: Website timeline sejarah teknologi web"
-   git branch -M main
-   git remote add origin https://github.com/USERNAME/REPO-NAME.git
-   git push -u origin main
-   ```
-
-2. **Aktifkan GitHub Pages:**
-   - Buka repository di GitHub
-   - Klik **Settings** → **Pages**
-   - Di bagian **Source**, pilih branch **main** dan folder **/ (root)**
-   - Klik **Save**
-   - Tunggu beberapa saat, website akan tersedia di:
-     `https://USERNAME.github.io/REPO-NAME/`
-
-3. **Alternatif dengan GitHub Desktop:**
-   - Install [GitHub Desktop](https://desktop.github.com/)
-   - Buka aplikasi → **File** → **Add Local Repository**
-   - Pilih folder project
-   - **Publish repository** ke GitHub
-   - Di GitHub, aktifkan GitHub Pages seperti langkah di atas
-
 ## 📁 Struktur File
 
 ```
