@@ -1,22 +1,34 @@
 # Evolusi Dunia Web - Timeline Sejarah Teknologi Web
 
-Website interaktif yang menampilkan timeline evolusi teknologi web dari tahun 1989 hingga 2017. Dibuat sebagai proyek akhir kelompok mata kuliah Pemrograman Web.
+Website interaktif yang menampilkan timeline evolusi teknologi web dari tahun 1989 hingga era modern (2017+). Dibuat sebagai proyek akhir kelompok mata kuliah Pemrograman Web.
 
 ## 🌐 Fitur
 
 - **Landing Page** yang menarik dengan desain modern
-- **Timeline Interaktif** yang menampilkan 5 tonggak sejarah penting
+- **Timeline Interaktif** yang menampilkan 15+ tonggak sejarah penting
 - **Halaman Detail** untuk setiap event dengan informasi lengkap
 - **Responsive Design** yang bekerja di semua perangkat
 - **Aksesibilitas** yang baik dengan dukungan keyboard navigation
 
-## 📋 Tonggak Sejarah yang Ditampilkan
+## 📋 Contoh Tonggak Sejarah (sebagian)
 
-1. **1989: Kelahiran World Wide Web** - Proposal Tim Berners-Lee di CERN
-2. **1993: Mosaic Browser** - Browser grafis pertama yang memopulerkan web
-3. **1996: CSS Level 1** - Standardisasi CSS oleh W3C
-4. **2007: Revolusi Mobile** - Era Responsive Web Design dimulai
-5. **2017: CSS Grid** - Revolusi tata letak dua dimensi
+- **1989: Kelahiran World Wide Web** (CERN)
+- **1991: Web dirilis ke publik** (info.cern.ch)
+- **1993: Mosaic Browser** (NCSA)
+- **1994: W3C didirikan**
+- **1995: JavaScript lahir** (Netscape)
+- **1995: PHP diperkenalkan**
+- **1996: CSS Level 1** (W3C)
+- **1998: CSS Level 2** (W3C)
+- **2000: XHTML 1.0** (W3C)
+- **2004: Web 2.0**
+- **2005: Ajax memopuler**
+- **2007: Revolusi Mobile (RWD)**
+- **2008: Google Chrome & V8**
+- **2009: Node.js**
+- **2014: HTTP/2**
+- **2015: ES6/ES2015**
+- **2017: CSS Grid**
 
 ## 👥 Anggota Kelompok
 
@@ -44,11 +56,7 @@ Project Kelompok Website/
 │
 ├── index.html              # Landing page
 ├── timeline.html           # Halaman timeline interaktif
-├── event-1989.html         # Detail: Kelahiran WWW
-├── event-1993.html         # Detail: Mosaic Browser
-├── event-1996.html         # Detail: CSS Level 1
-├── event-2007.html         # Detail: Revolusi Mobile
-├── event-2017.html         # Detail: CSS Grid
+├── event-*.html            # Halaman detail per peristiwa (1989, 1991, 1993, 1994, 1995, dst.)
 ├── README.md               # File ini
 └── assets/
     └── styles/
