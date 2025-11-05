@@ -171,6 +171,7 @@ body.landing-page {
 
 /* Styling Teks di Kotak Konten */
 .event-content h2 { color: #333; margin-bottom: 8px; font-size: 1.4em; }
+.event-content p { margin-bottom: 10px; }
 .event-content p strong { color: #f7a048; }
 .read-more {
     display: block; margin-top: 10px; font-weight: bold;
