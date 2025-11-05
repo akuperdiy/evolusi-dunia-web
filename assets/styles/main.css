@@ -138,33 +138,6 @@ body.landing-page {
 }
 .timeline-event.right { left: 50%; justify-content: flex-start; }
 
-/* Timeline minimalist adjustment */
-.timeline-container {
-    margin-top: 40px !important;
-    margin-bottom: 60px !important;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-.timeline-event {
-    padding-bottom: 80px !important;
-    min-height: 140px;
-}
-.event-point {
-    width: 90px !important;
-    height: 38px !important;
-    background: #195fcf !important;
-    box-shadow: 0 2px 14px rgba(25,95,207,0.17);
-    font-size: 1.15em !important;
-    border-radius: 18px !important;
-}
-.event-content {
-    border-left: 3px solid #e3eafc !important;
-    box-shadow: 0 3px 10px rgba(60, 120, 200, 0.12) !important;
-}
-.timeline-path {
-    background-color: #e3eafc !important;
-}
-
 /* ============================================== */
 /* 4. KOTAK KONTEN & KARTU DAPAT DIKLIK           */
 /* ============================================== */
@@ -584,4 +557,27 @@ body.landing-page {
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+.timeline-event .event-point {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-event.right .event-point {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Tambahan jarak agar tahun tidak menabrak kotak */
+.timeline-event .event-point {
+    right: -55px;
+}
+
+.timeline-event.right .event-point {
+    left: -55px;
+}
+
+.timeline-event {
+    align-items: center;
 }
