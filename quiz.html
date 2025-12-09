@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Interaktif - Uji pengetahuanmu tentang sejarah World Wide Web!">
+    <title>Quiz Interaktif - Evolusi Web</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .quiz-page {
+            margin-left: 280px;
+            min-height: 100vh;
+            background: var(--bg-gray-50);
+        }
+
+        .quiz-hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .quiz-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-hero p {
+            opacity: 0.9;
+            font-size: 1.25rem;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Start Screen */
+        .quiz-start {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quiz-start-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .quiz-start h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-start p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-start-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-info-item {
+            text-align: center;
+        }
+
+        .quiz-info-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .quiz-info-label {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .btn-start {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Quiz Area */
+        .quiz-area {
+            display: none;
+        }
+
+        .quiz-area.active {
+            display: block;
+        }
+
+        .quiz-start.hidden {
+            display: none;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quiz-progress-text {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .quiz-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-gray-100);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 24px;
+            background: var(--bg-gray-50);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .option-letter {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .option-btn.correct {
+            background: #D1FAE5;
+            border-color: #10B981;
+        }
+
+        .option-btn.correct .option-letter {
+            background: #10B981;
+            color: white;
+        }
+
+        .option-btn.wrong {
+            background: #FEE2E2;
+            border-color: #EF4444;
+        }
+
+        .option-btn.wrong .option-letter {
+            background: #EF4444;
+            color: white;
+        }
+
+        .option-btn.disabled {
+            pointer-events: none;
+        }
+
+        .feedback-box {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback-box.show {
+            display: block;
+        }
+
+        .feedback-box.correct {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .feedback-box.wrong {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .btn-next {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-next.show {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-next:hover {
+            background: var(--secondary);
+        }
+
+        /* Result Screen */
+        .quiz-result {
+            display: none;
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quiz-result.active {
+            display: block;
+            animation: slideIn 0.4s ease;
+        }
+
+        .result-emoji {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .result-score {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-text {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .btn-retry {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-retry:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .quiz-page {
+                margin-left: 0;
+                padding-bottom: 80px;
+            }
+
+            .quiz-container {
+                padding: 1.5rem;
+            }
+
+            .question-text {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="timeline-sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">📚 <span>Evolusi Web</span></a>
+        </div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="index.html" class="nav-link"><span class="nav-icon">🏠</span><span>Beranda</span></a></li>
+                <li><a href="timeline.html" class="nav-link"><span class="nav-icon">📖</span><span>Materi</span></a>
+                </li>
+                <li><a href="quiz.html" class="nav-link active"><span class="nav-icon">🎮</span><span>Quiz</span></a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="quiz-page">
+        <div class="quiz-hero">
+            <h1>🎮 Quiz Interaktif</h1>
+            <p>Uji pengetahuanmu tentang sejarah World Wide Web!</p>
+        </div>
+
+        <div class="quiz-container">
+            <!-- Start Screen -->
+            <div class="quiz-start" id="start-screen">
+                <div class="quiz-start-icon">🚀</div>
+                <h2>Siap Menguji Pengetahuanmu?</h2>
+                <p>Jawab 10 pertanyaan acak tentang sejarah web dan lihat skormu!</p>
+
+                <div class="quiz-start-info">
+                    <div class="quiz-info-item">
+                        <div class="quiz-info-number">10</div>
+                        <div class="quiz-info-label">Pertanyaan</div>
+                    </div>
+                    <div class="quiz-info-item">
+                        <div class="quiz-info-number">30+</div>
+                        <div class="quiz-info-label">Bank Soal</div>
+                    </div>
+                    <div class="quiz-info-item">
+                        <div class="quiz-info-number">🎲</div>
+                        <div class="quiz-info-label">Acak</div>
+                    </div>
+                </div>
+
+                <button class="btn-start" onclick="startQuiz()">
+                    <span>▶</span> Mulai Quiz
+                </button>
+            </div>
+
+            <!-- Quiz Area -->
+            <div class="quiz-area" id="quiz-area">
+                <div class="quiz-header">
+                    <div class="quiz-progress-text" id="progress-text">Soal 1/10</div>
+                    <div class="quiz-score">⭐ <span id="score">0</span></div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+
+                <div class="question-card" id="question-card">
+                    <div class="question-number" id="q-number">Pertanyaan 1</div>
+                    <div class="question-text" id="q-text">Loading...</div>
+                    <div class="options-list" id="options-list"></div>
+                    <div class="feedback-box" id="feedback"></div>
+                    <button class="btn-next" id="btn-next" onclick="nextQuestion()">Lanjut →</button>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div class="quiz-result" id="result-screen">
+                <div class="result-emoji" id="result-emoji">🎉</div>
+                <div class="result-score" id="result-score">0/10</div>
+                <div class="result-text" id="result-text">Hebat!</div>
+                <button class="btn-retry" onclick="restartQuiz()">🔄 Coba Lagi</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Bank soal - 30+ pertanyaan
+        const allQuestions = [
+            { q: "Siapa yang menciptakan World Wide Web?", o: ["Steve Jobs", "Tim Berners-Lee", "Bill Gates", "Mark Zuckerberg"], a: 1 },
+            { q: "Tahun berapa World Wide Web diciptakan?", o: ["1985", "1989", "1993", "1995"], a: 1 },
+            { q: "Di mana Tim Berners-Lee bekerja saat menciptakan WWW?", o: ["MIT", "Google", "CERN", "Microsoft"], a: 2 },
+            { q: "Browser Mosaic terkenal karena...?", o: ["Paling cepat", "Bisa menampilkan gambar", "Gratis", "Paling kecil"], a: 1 },
+            { q: "Siapa pembuat browser Mosaic?", o: ["Tim Berners-Lee", "Marc Andreessen", "Brendan Eich", "Linus Torvalds"], a: 1 },
+            { q: "JavaScript diciptakan dalam berapa hari?", o: ["10 hari", "10 minggu", "10 bulan", "1 tahun"], a: 0 },
+            { q: "Siapa pencipta JavaScript?", o: ["James Gosling", "Brendan Eich", "Guido van Rossum", "Dennis Ritchie"], a: 1 },
+            { q: "Nama awal JavaScript adalah...?", o: ["ECMAScript", "Mocha", "JScript", "TypeScript"], a: 1 },
+            { q: "CSS digunakan untuk...?", o: ["Logika program", "Styling/tampilan", "Database", "Jaringan"], a: 1 },
+            { q: "CSS singkatan dari...?", o: ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Syntax", "Colorful Site Styling"], a: 1 },
+            { q: "iPhone pertama diluncurkan tahun?", o: ["2005", "2006", "2007", "2008"], a: 2 },
+            { q: "Siapa pendiri Apple?", o: ["Bill Gates", "Steve Jobs", "Jeff Bezos", "Elon Musk"], a: 1 },
+            { q: "HTML singkatan dari...?", o: ["Hyper Text Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyperlink Text Management"], a: 0 },
+            { q: "W3C adalah organisasi yang...?", o: ["Membuat browser", "Menjual domain", "Membuat standar web", "Menyediakan hosting"], a: 2 },
+            { q: "CSS Grid mengatur elemen dalam bentuk...?", o: ["Lingkaran", "Baris dan kolom", "Segitiga", "Acak"], a: 1 },
+            { q: "HTTP singkatan dari...?", o: ["Hyper Text Transfer Protocol", "High Tech Transfer Program", "Home Text Transfer Protocol", "Hyperlink Technical Process"], a: 0 },
+            { q: "Node.js diciptakan tahun berapa?", o: ["2005", "2007", "2009", "2011"], a: 2 },
+            { q: "Siapa pencipta Node.js?", o: ["Brendan Eich", "Ryan Dahl", "Dan Abramov", "Evan You"], a: 1 },
+            { q: "Google Chrome diluncurkan tahun?", o: ["2006", "2007", "2008", "2009"], a: 2 },
+            { q: "PHP adalah singkatan dari...?", o: ["Personal Home Page", "PHP Hypertext Preprocessor", "Program Helper Protocol", "Public HTML Parser"], a: 1 },
+            { q: "Siapa pencipta PHP?", o: ["Rasmus Lerdorf", "Brendan Eich", "James Gosling", "Guido van Rossum"], a: 0 },
+            { q: "AJAX diperkenalkan tahun?", o: ["2003", "2005", "2007", "2009"], a: 1 },
+            { q: "AJAX singkatan dari...?", o: ["Asynchronous JavaScript And XML", "Advanced JavaScript And XHTML", "Automatic Java Application Extension", "Active JavaScript And XML"], a: 0 },
+            { q: "Flexbox dan Grid adalah fitur dari...?", o: ["HTML", "JavaScript", "CSS", "PHP"], a: 2 },
+            { q: "ES6 dirilis tahun?", o: ["2013", "2014", "2015", "2016"], a: 2 },
+            { q: "Responsive Web Design diciptakan oleh?", o: ["Tim Berners-Lee", "Ethan Marcotte", "Steve Jobs", "Mark Zuckerberg"], a: 1 },
+            { q: "CERN terletak di negara?", o: ["Amerika", "Inggris", "Swiss", "Jerman"], a: 2 },
+            { q: "Web 2.0 mengacu pada...?", o: ["Versi HTML baru", "Era web interaktif", "Browser baru", "Protokol baru"], a: 1 },
+            { q: "Tim Berners-Lee berasal dari negara?", o: ["Amerika", "Inggris", "Swiss", "Jerman"], a: 1 },
+            { q: "URL singkatan dari...?", o: ["Uniform Resource Locator", "Universal Reference Link", "Unique Resource Location", "User Resource Library"], a: 0 }
+        ];
+
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function startQuiz() {
+            // Shuffle and pick 10 random questions
+            currentQuestions = shuffleArray(allQuestions).slice(0, 10);
+            currentIndex = 0;
+            score = 0;
+            answered = false;
+
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-area').classList.add('active');
+            document.getElementById('result-screen').classList.remove('active');
+            document.getElementById('score').textContent = '0';
+
+            showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            const q = currentQuestions[currentIndex];
+
+            document.getElementById('progress-text').textContent = `Soal ${currentIndex + 1}/10`;
+            document.getElementById('progress-bar').style.width = `${(currentIndex / 10) * 100}%`;
+            document.getElementById('q-number').textContent = `Pertanyaan ${currentIndex + 1}`;
+            document.getElementById('q-text').textContent = q.q;
+
+            const optionsList = document.getElementById('options-list');
+            optionsList.innerHTML = q.o.map((opt, i) => `
+                <button class="option-btn" onclick="selectAnswer(${i})">
+                    <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                </button>
+            `).join('');
+
+            document.getElementById('feedback').className = 'feedback-box';
+            document.getElementById('btn-next').classList.remove('show');
+
+            // Re-animate card
+            const card = document.getElementById('question-card');
+            card.style.animation = 'none';
+            card.offsetHeight; // Trigger reflow
+            card.style.animation = 'slideIn 0.4s ease';
+        }
+
+        function selectAnswer(index) {
+            if (answered) return;
+            answered = true;
+
+            const q = currentQuestions[currentIndex];
+            const options = document.querySelectorAll('.option-btn');
+            const feedback = document.getElementById('feedback');
+
+            options.forEach((opt, i) => {
+                opt.classList.add('disabled');
+                if (i === q.a) opt.classList.add('correct');
+                if (i === index && i !== q.a) opt.classList.add('wrong');
+            });
+
+            if (index === q.a) {
+                score++;
+                document.getElementById('score').textContent = score;
+                feedback.textContent = '✅ Benar! Hebat!';
+                feedback.className = 'feedback-box show correct';
+            } else {
+                feedback.textContent = `❌ Salah! Jawaban yang benar: ${q.o[q.a]}`;
+                feedback.className = 'feedback-box show wrong';
+            }
+
+            document.getElementById('btn-next').classList.add('show');
+            document.getElementById('btn-next').textContent = currentIndex < 9 ? 'Lanjut →' : 'Lihat Hasil 🎉';
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < 10) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-area').classList.remove('active');
+            document.getElementById('result-screen').classList.add('active');
+            document.getElementById('progress-bar').style.width = '100%';
+
+            let emoji, text;
+            const percentage = (score / 10) * 100;
+
+            if (percentage === 100) { emoji = '🏆'; text = 'SEMPURNA! Kamu ahli sejarah web!'; }
+            else if (percentage >= 80) { emoji = '🎉'; text = 'HEBAT! Pengetahuanmu luar biasa!'; }
+            else if (percentage >= 60) { emoji = '😊'; text = 'BAGUS! Terus belajar ya!'; }
+            else if (percentage >= 40) { emoji = '🤔'; text = 'LUMAYAN! Coba baca materi lagi!'; }
+            else { emoji = '📚'; text = 'SEMANGAT! Baca materi dulu ya!'; }
+
+            document.getElementById('result-emoji').textContent = emoji;
+            document.getElementById('result-score').textContent = `${score}/10`;
+            document.getElementById('result-text').textContent = text;
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.remove('active');
+            document.getElementById('quiz-area').classList.remove('active');
+            document.getElementById('start-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>

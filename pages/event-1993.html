@@ -140,24 +140,7 @@
                     </div>
                 </div>
 
-                <h2>🧠 Quiz Time!</h2>
-                <div class="quiz-box">
-                    <div class="quiz-title">🎮 Uji Pengetahuanmu!</div>
-                    <div class="quiz-question">Apa yang membuat Mosaic spesial dibanding browser sebelumnya?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <span>A.</span> Lebih cepat
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, true)">
-                            <span>B.</span> Bisa menampilkan gambar
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <span>C.</span> Gratis
-                        </div>
-                        <div class="quiz-option" onclick="checkAnswer(this, false)">
-                            <span>D.</span> Warnanya bagus
-                        </div>
-                    </div>
+                
                     <div class="quiz-feedback" id="quiz-feedback"></div>
                 </div>
 
@@ -190,28 +173,7 @@
         </div>
     </main>
 
-    <script>
-        function checkAnswer(element, isCorrect) {
-            const options = document.querySelectorAll('.quiz-option');
-            const feedback = document.getElementById('quiz-feedback');
-
-            options.forEach(opt => {
-                opt.classList.remove('correct', 'wrong');
-                opt.style.pointerEvents = 'none';
-            });
-
-            if (isCorrect) {
-                element.classList.add('correct');
-                feedback.className = 'quiz-feedback show correct';
-                feedback.innerHTML = '🎉 BENAR! Mosaic bisa menampilkan gambar!';
-            } else {
-                element.classList.add('wrong');
-                feedback.className = 'quiz-feedback show wrong';
-                feedback.innerHTML = '❌ Belum tepat. Mosaic spesial karena bisa tampilkan gambar!';
-                options[1].classList.add('correct');
-            }
-        }
-    </script>
+    
     <script src="../assets/js/main.js"></script>
 </body>
 
