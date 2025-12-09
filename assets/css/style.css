@@ -304,22 +304,34 @@ a:hover {
 .footer-title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    color: white;
 }
 
 .footer-text {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1.5rem;
 }
 
 .team-members {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    gap: 0.75rem;
     flex-wrap: wrap;
 }
 
+.team-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
 .team-member {
-    font-weight: 500;
+    font-weight: 600;
+    color: white;
+}
+
+.team-divider {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* ============================================== */
