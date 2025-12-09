@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2009: 🟢 Node.js - Timeline Sejarah Web">
+    <title>2009: 🟢 Node.js - Timeline Sejarah Web</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <aside class="timeline-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                📚 <span>Evolusi Web</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Beranda</span>
+                </a></li>
+                <li><a href="../timeline.html" class="nav-link active">
+                    <span class="nav-icon">📜</span>
+                    <span>Timeline</span>
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="detail-page">
+        <div class="detail-hero">
+            <div class="detail-container">
+                <nav class="breadcrumb">
+                    <a href="../index.html">Beranda</a>
+                    <span>›</span>
+                    <a href="../timeline.html">Timeline</a>
+                    <span>›</span>
+                    <span>2009</span>
+                </nav>
+                
+                <a href="../timeline.html" class="btn-back">← Kembali ke Timeline</a>
+                
+                <header class="detail-header">
+                    <span class="detail-year">2009</span>
+                    <h1 class="detail-title">🟢 Node.js</h1>
+                    
+                    <div class="detail-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Pencetus</div>
+                            <div class="meta-value">Ryan Dahl</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Organisasi</div>
+                            <div class="meta-value">Joyent</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Jenis</div>
+                            <div class="meta-value">Runtime</div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="detail-content-wrapper">
+            <article class="detail-content">
+                <h3>Pengertian</h3>
+                <p><strong>Node.js</strong> adalah runtime JavaScript sisi server berbasis event loop non-blocking di atas V8, dirancang untuk menangani I/O bersamaan secara efisien.</p>
+                <p>Pendekatan ini cocok untuk layanan real-time dan API berperforma tinggi, sambil menyatukan bahasa pemrograman antara <em>front-end</em> dan <em>back-end</em>.</p>
+                <p><strong>Node.js</strong> membawa JavaScript ke sisi server dengan model I/O non-blocking yang efisien untuk aplikasi real-time. Ekosistem <strong>npm</strong> tumbuh cepat, menjadi salah satu repositori paket terbesar di dunia. Arsitektur berbasis event cocok untuk <em>chat</em>, streaming, dan API berperforma tinggi.</p>
+                <h3>Konsep Inti</h3>
+                <ul class="key-points">
+                <li><strong>Event loop</strong> dan <strong>callback</strong> untuk menangani banyak koneksi secara efisien.</li>
+                <li><strong>Single-threaded</strong> dengan <em>libuv</em> untuk operasi I/O asynchronous.</li>
+                <li><strong>npm</strong> menyediakan jutaan paket siap pakai.</li>
+                </ul>
+                <h3>Dampak</h3>
+                <ul class="key-points">
+                <li>Menyatukan bahasa di <em>front-end</em> dan <em>back-end</em>.</li>
+                <li>Mempercepat pengembangan API dan layanan real-time.</li>
+                </ul>
+                <h3>Praktik Terbaik</h3>
+                <ul class="key-points">
+                <li>Gunakan <strong>async/await</strong> dan tangani error dengan try/catch secara terstruktur.</li>
+                <li>Hindari <em>event loop blocking</em>; delegasikan kerja berat ke worker threads/layanan terpisah.</li>
+                <li>Kelola dependensi dan keamanan paket <strong>npm</strong> dengan audit/update rutin.</li>
+                </ul>
+                <h3>Sumber Referensi</h3>
+                <ul class="key-points">
+                <li><a href="https://nodejs.org/en/about" target="_blank" rel="noopener">Node.js: About</a></li>
+                <li><a href="https://npmjs.com/" target="_blank" rel="noopener">npm: Ekosistem paket</a></li>
+                <li><a href="https://www.youtube.com/watch?v=ztspvPYybIY" target="_blank" rel="noopener">Ryan Dahl: Presentasi awal Node.js</a></li>
+                <li><a href="https://libuv.org/" target="_blank" rel="noopener">libuv: Abstraksi I/O lintas platform</a></li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

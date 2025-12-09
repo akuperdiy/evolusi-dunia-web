@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2005: 🔄 Ajax - Timeline Sejarah Web">
+    <title>2005: 🔄 Ajax - Timeline Sejarah Web</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <aside class="timeline-sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="sidebar-logo">
+                📚 <span>Evolusi Web</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Beranda</span>
+                </a></li>
+                <li><a href="../timeline.html" class="nav-link active">
+                    <span class="nav-icon">📜</span>
+                    <span>Timeline</span>
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="detail-page">
+        <div class="detail-hero">
+            <div class="detail-container">
+                <nav class="breadcrumb">
+                    <a href="../index.html">Beranda</a>
+                    <span>›</span>
+                    <a href="../timeline.html">Timeline</a>
+                    <span>›</span>
+                    <span>2005</span>
+                </nav>
+                
+                <a href="../timeline.html" class="btn-back">← Kembali ke Timeline</a>
+                
+                <header class="detail-header">
+                    <span class="detail-year">2005</span>
+                    <h1 class="detail-title">🔄 Ajax</h1>
+                    
+                    <div class="detail-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Pencetus</div>
+                            <div class="meta-value">Jesse James Garrett</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Organisasi</div>
+                            <div class="meta-value">Adaptive Path</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Jenis</div>
+                            <div class="meta-value">Teknik</div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="detail-content-wrapper">
+            <article class="detail-content">
+                <h3>Pengertian</h3>
+                <p><strong>Ajax</strong> adalah pendekatan pengembangan antarmuka web yang memungkinkan pertukaran data dengan server secara asinkron tanpa memuat ulang halaman penuh. Ini membuat aplikasi terasa lebih cepat dan responsif.</p>
+                <p>Secara praktis, Ajax memanfaatkan <em>XMLHttpRequest</em> atau <code>fetch</code> untuk mengambil/ mengirim data (sering dalam format JSON), lalu memutakhirkan DOM secara dinamis.</p>
+                <p><strong>Ajax</strong> memisahkan interaksi UI dari pemuatan halaman penuh dengan melakukan permintaan data secara <strong>asinkron</strong>. Pengguna merasakan aplikasi web yang lebih cepat dan mulus.</p>
+                <div class="highlight">
+                <p>Ajax membuka jalan bagi arsitektur <em>single-page application</em> dan pola API JSON modern.</p>
+                </div>
+                <h3>Teknologi Kunci</h3>
+                <ul class="key-points">
+                <li><strong>XMLHttpRequest</strong> (XHR) untuk permintaan HTTP asinkron.</li>
+                <li><strong>JSON</strong> menggantikan XML sebagai format pertukaran data yang ringan.</li>
+                <li><strong>Manipulasi DOM</strong> untuk memperbarui tampilan tanpa reload.</li>
+                </ul>
+                <h3>Contoh Ikonik</h3>
+                <ul class="key-points">
+                <li><strong>Google Maps</strong>: Panning/zooming mulus tanpa muat ulang.</li>
+                <li><strong>Gmail</strong>: Email berbasis web dengan interaksi cepat.</li>
+                </ul>
+                <h3>Praktik Terbaik</h3>
+                <ul class="key-points">
+                <li>Gunakan <strong>fetch</strong> atau wrapper XHR modern; tangani error dan timeout.</li>
+                <li>Optimalkan payload: gunakan <strong>JSON</strong>, kompresi, dan pagination.</li>
+                <li>Kelola status UI saat loading (spinner, skeleton) untuk feedback pengguna.</li>
+                </ul>
+                <h3>Miskonsepsi Umum</h3>
+                <ul class="key-points">
+                <li><strong>"Ajax berarti harus pakai XML"</strong>: Format data tidak wajib XML; JSON lebih umum.</li>
+                <li><strong>"Ajax selalu meningkatkan performa"</strong>: Desain API buruk dapat memperparah latensi.</li>
+                </ul>
+                <h3>Sumber Referensi</h3>
+                <ul class="key-points">
+                <li><a href="https://adaptivepath.org/ideas/ajax-new-approach-web-applications/" target="_blank" rel="noopener">Jesse James Garrett: Ajax</a></li>
+                <li><a href="https://developer.mozilla.org/docs/Web/Guide/AJAX" target="_blank" rel="noopener">MDN: Panduan Ajax</a></li>
+                <li><a href="https://xhr.spec.whatwg.org/" target="_blank" rel="noopener">WHATWG: Spesifikasi XMLHttpRequest</a></li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

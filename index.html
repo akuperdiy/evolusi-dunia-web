@@ -1,60 +1,95 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jelajahi evolusi teknologi web secara singkat dan jelas.">
-    <title>Evolusi Dunia Web</title>
-    <link rel="stylesheet" href="assets/styles/main.css">
-    <style>
-        /* Subtle fade-in for landing content */
-        .fade-in { animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1); }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <meta name="description"
+        content="Jelajahi evolusi teknologi web dari masa ke masa - Panduan lengkap perjalanan World Wide Web">
+    <title>Evolusi Dunia Web - Sejarah Teknologi Web Modern</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="landing-page">
-    <div class="landing-container">
-        <div class="landing-content fade-in">
-            <h1 class="landing-title">
-                <span class="title-line">Evolusi</span>
-                <span class="title-line highlight">Dunia Web</span>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="hero-container">
+            <div class="hero-badge fade-in">📚 Panduan Edukasi Web</div>
+            <h1 class="hero-title fade-in stagger-1">
+                Evolusi <span class="highlight">Dunia Web</span>
             </h1>
-            <div class="landing-subtitle" style="font-weight:700; color:#1a73e8; letter-spacing:1px;">
-                Sejarah Singkat Teknologi Web Modern
-            </div>
-            <p class="landing-description">
-                Dari kelahiran Web hingga era modern melalui tonggak-tonggak penting. Temukan inovasinya secara ringkas—mudah, visual, dan informatif.
+            <p class="hero-subtitle fade-in stagger-2">
+                Telusuri perjalanan transformatif teknologi web dari kelahiran World Wide Web hingga era modern melalui
+                timeline interaktif yang mendalam.
             </p>
-            <a href="timeline.html" class="landing-btn">
-                <span>Mulai Jelajahi</span>
-                <span class="btn-arrow">→</span>
+            <a href="timeline.html" class="hero-cta fade-in stagger-3">
+                Jelajahi Timeline
+                <span>→</span>
             </a>
-            <div class="landing-features">
-                <div class="feature-item">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">Fitur Pembelajaran</h2>
+            <p class="section-subtitle">
+                Pahami evolusi web secara komprehensif melalui pendekatan sistematis dan terstruktur
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in stagger-1">
                     <span class="feature-icon">🌐</span>
-                    <span class="feature-text">Web Lahir</span>
+                    <h3 class="feature-title">Timeline Kronologis</h3>
+                    <p class="feature-text">
+                        Susun peristiwa penting dalam sejarah web secara kronologis untuk pemahaman kontekstual yang
+                        mendalam.
+                    </p>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎨</span>
-                    <span class="feature-text">CSS & Desain</span>
+
+                <div class="feature-card fade-in stagger-2">
+                    <span class="feature-icon">📖</span>
+                    <h3 class="feature-title">Konten Edukatif</h3>
+                    <p class="feature-text">
+                        Setiap peristiwa dilengkapi dengan penjelasan terperinci, latar belakang, dan dampak
+                        teknologinya.
+                    </p>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">⚡</span>
-                    <span class="feature-text">JavaScript</span>
+
+                <div class="feature-card fade-in stagger-3">
+                    <span class="feature-icon">💡</span>
+                    <h3 class="feature-title">Visualisasi Interaktif</h3>
+                    <p class="feature-text">
+                        Navigasi intuitif dengan visual menarik memudahkan eksplorasi informasi kompleks.
+                    </p>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔄</span>
-                    <span class="feature-text">Dinamis & Modern</span>
+
+                <div class="feature-card fade-in stagger-4">
+                    <span class="feature-icon">📱</span>
+                    <h3 class="feature-title">Responsif & Aksesibel</h3>
+                    <p class="feature-text">
+                        Dioptimalkan untuk semua perangkat dengan desain responsif dan aksesibilitas tinggi.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="landing-footer">
-            <p>&copy; 2025 Proyek Pembuatan Website</p>
-            <p class="team-credits">Muhammad Ferdiansyah • Daffarif Nahsal • Liza Sania</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <div class="footer-content">
+            <h3 class="footer-title">Proyek Evolusi Dunia Web</h3>
+            <p class="footer-text">&copy; 2025 Proyek Pembuatan Website</p>
+            <div class="team-members">
+                <span class="team-member">Muhammad Ferdiansyah</span>
+                <span class="team-member">Daffarif Nahsal</span>
+                <span class="team-member">Liza Sania</span>
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
